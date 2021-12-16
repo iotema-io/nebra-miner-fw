@@ -1,9 +1,8 @@
-core_freq=250
+core_freq=400
 dtoverlay=spi1-3cs
 dtoverlay=uart0,txd0_pin=32,rxd0_pin=33,pin_func=7
 dtparam=i2c_arm=on
 dtparam=spi=on
-dtparam=audio=on
 avoid_warnings=1
 disable_overscan=1
 disable_splash=1
