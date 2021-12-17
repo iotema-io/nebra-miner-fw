@@ -2,9 +2,9 @@ nebra-miner-fw
 
 # Guide for fixing your Nebra FW
 
-**NOTE 211217: This has not been verified during a longer time period.** So far it seems to be working for the last 24h, will update this README with more information if it works over a longer time period.
+**NOTE 211217: This has not been verified during a longer time period and only on three units** So far it seems to be working for the last 24h, will update this README with more information if it works over a longer time period.
 
-
+The SD-cards that were used are Sandisk Endurance 32GB cards, and the Nebra miners are NEBHNT1, first batch fitted with RPi3 CM and a eMMC-key.
 
 - Open an account at balena.cloud.com
 - Start a fleet
