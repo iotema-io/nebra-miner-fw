@@ -98,10 +98,10 @@ services:
     environment:
       - DBUS_ADDRESS=unix:path=/session/dbus/session_bus_socket
       - FIRMWARE_VERSION=2022.01.04.0-2
-    
+      
+  # This is the watchdog image, you need to configure the watchdog accordingly.    
   watchdog:
-    image: docker.io/frahlg/nebra_watchdog
-    restart: always
+    build: watchdog
 
 volumes:
   miner-storage:
