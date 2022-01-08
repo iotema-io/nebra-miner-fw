@@ -1,0 +1,196 @@
+[
+    {
+        "id": "473f2fd38338d3da",
+        "type": "tab",
+        "label": "watchdog Nebra",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "3ca8c28f4a143f5a",
+        "type": "http in",
+        "z": "473f2fd38338d3da",
+        "name": "",
+        "url": "nebrawatchdog",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 210,
+        "y": 160,
+        "wires": [
+            [
+                "e388bb6b3c78402f",
+                "6765ab4f903ebe79"
+            ]
+        ]
+    },
+    {
+        "id": "e388bb6b3c78402f",
+        "type": "http response",
+        "z": "473f2fd38338d3da",
+        "name": "",
+        "statusCode": "200",
+        "headers": {},
+        "x": 200,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "6765ab4f903ebe79",
+        "type": "switch",
+        "z": "473f2fd38338d3da",
+        "name": "miners",
+        "property": "payload.miner_name",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "cool-strawberry-pike",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "festive-gray-camel",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "sticky-navy-chimpanzee",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 410,
+        "y": 160,
+        "wires": [
+            [
+                "efa1d42e01d4a7f9"
+            ],
+            [
+                "97b9bbefa3c8d1cc"
+            ],
+            [
+                "3760b30be2342b76"
+            ]
+        ],
+        "outputLabels": [
+            "strawberry",
+            "camel",
+            null
+        ]
+    },
+    {
+        "id": "efa1d42e01d4a7f9",
+        "type": "trigger",
+        "z": "473f2fd38338d3da",
+        "name": "cool-strawberry-pike",
+        "op1": "",
+        "op2": "cool-strawberry-pike OFFLINE",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "3",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "min",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 700,
+        "y": 60,
+        "wires": [
+            [
+                "228dbd14da2be824"
+            ]
+        ]
+    },
+    {
+        "id": "97b9bbefa3c8d1cc",
+        "type": "trigger",
+        "z": "473f2fd38338d3da",
+        "name": "festive-gray-camel",
+        "op1": "",
+        "op2": "festive-gray-camel OFFLINE",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "3",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "min",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 690,
+        "y": 120,
+        "wires": [
+            [
+                "228dbd14da2be824"
+            ]
+        ]
+    },
+    {
+        "id": "3760b30be2342b76",
+        "type": "trigger",
+        "z": "473f2fd38338d3da",
+        "name": "sticky-navy-chimpanzee",
+        "op1": "",
+        "op2": "sticky-navy-chimpanzee OFFLINE",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "3",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "min",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 710,
+        "y": 180,
+        "wires": [
+            [
+                "228dbd14da2be824"
+            ]
+        ]
+    },
+    {
+        "id": "228dbd14da2be824",
+        "type": "discordSendMessage",
+        "z": "473f2fd38338d3da",
+        "name": "lazer-charlie-bot-channel",
+        "channel": "859332666359676928",
+        "token": "",
+        "x": 1050,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "b21200e47e703294",
+        "type": "inject",
+        "z": "473f2fd38338d3da",
+        "name": "start timers",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "7200",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 610,
+        "y": 320,
+        "wires": [
+            [
+                "efa1d42e01d4a7f9",
+                "97b9bbefa3c8d1cc",
+                "3760b30be2342b76"
+            ]
+        ]
+    }
+]
