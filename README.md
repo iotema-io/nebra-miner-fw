@@ -2,7 +2,7 @@ nebra-miner-fw
 
 # Guide for fixing your Nebra FW
 
-**UPDATE 211225** The miners have not been running succesfully, both beacoing, witnessing and recieving data packets for a full week. 
+**UPDATE 220108** The miners have not been running succesfully, both beacoing, witnessing and recieving data packets for several weeks. They do seem unstable though, and still needs to be restarted from time to time. This seems to be a hardware related problem.
 
 The SD-cards that were used are Sandisk Endurance 32GB cards, and the Nebra miners are NEBHNT1, first batch, RPi3 CM and eMMC-key.
 
@@ -14,13 +14,15 @@ The SD-cards that were used are Sandisk Endurance 32GB cards, and the Nebra mine
 - Flash your SD-card with the Balena image.
 - Download the `docker-compose.yml` from https://github.com/NebraLtd/helium-miner-software and put that in an empty project folder.
 
+- Note: In the `docker-compose.yml` there is a simple watchdog application. Set your enviroment variable in Balena Cloud `REQ_URL=https://{your_endpoint_URL}` and it will automatically send a hearbeat every minute. 
+
+
 Push the project to your fleet using the balenaCLI.
 
 ```
 balena login
 balena push {organisation}/{fleet}
 ```
-
 
 1. [Helium miner software](https://github.com/NebraLtd/helium-miner-software)
 2. [Helpfile for Nebra software](https://githubhelp.com/Xykon/helium-miner-software)
